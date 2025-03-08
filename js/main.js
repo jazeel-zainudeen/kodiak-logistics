@@ -252,7 +252,7 @@ jQuery(document).ready(function($) {
 		}
 
 		// Smooth scroll when clicking the link
-		$('a[href^="#quote"]').on("click", function (e) {
+		$('a[href$="#quote"]').on("click", function (e) {
 			e.preventDefault();
 			smoothScroll("#quote-div"); // Scroll to new ID
 		});
