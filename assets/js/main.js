@@ -251,16 +251,23 @@ jQuery(document).ready(function($) {
 			}
 		}
 
-		// Smooth scroll when clicking the link
+		// Check if the user is NOT on the homepage
 		$('a[href$="#quote"]').on("click", function (e) {
 			e.preventDefault();
-			smoothScroll("#quote-div"); // Scroll to new ID
+
+			if (window.location.pathname !== "/") {
+				// Redirect to home with #quote
+				window.location.href = "/" + "#quote";
+			} else {
+				// Smooth scroll if already on home page
+				smoothScroll("#quote-div");
+			}
 		});
 
 		// Check if page loads with #quote in URL
 		if (window.location.hash === "#quote") {
 			setTimeout(() => {
-				smoothScroll("#quote-div"); // Scroll to new ID
+				smoothScroll("#quote-div");
 			}, 500);
 		}
 	});
