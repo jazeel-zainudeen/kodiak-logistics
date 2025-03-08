@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Redirect HTTP to HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Redirect non-www to www
+RewriteCond %{HTTP_HOST} ^kodiaklogisticsae\.com [NC]
+RewriteRule ^ https://www.kodiaklogisticsae.com%{REQUEST_URI} [R=301,L]
