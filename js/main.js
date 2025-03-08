@@ -239,4 +239,29 @@ jQuery(document).ready(function($) {
 	};
 	siteDatePicker();
 
+	// Smooth scroll to quote div
+	$(document).ready(function () {
+		function smoothScroll(target) {
+			if ($(target).length) {
+				const offset = 100; // Adjust the offset
+				$("html, body").animate(
+					{ scrollTop: $(target).offset().top - offset },
+					800
+				);
+			}
+		}
+
+		// Smooth scroll when clicking the link
+		$('a[href^="#quote"]').on("click", function (e) {
+			e.preventDefault();
+			smoothScroll("#quote-div"); // Scroll to new ID
+		});
+
+		// Check if page loads with #quote in URL
+		if (window.location.hash === "#quote") {
+			setTimeout(() => {
+				smoothScroll("#quote-div"); // Scroll to new ID
+			}, 500);
+		}
+	});
 });
