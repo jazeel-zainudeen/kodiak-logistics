@@ -1385,3 +1385,17 @@ h1, h2, h3, h4, h5,
 .custom-pagination span {
   background: #e6e6e6;
   color: #000; }
+
+.notyf__toast {
+  max-width: 450px;
+}
+
+.notyf__ripple {
+  height: 600px;
+  width: 600px;
+}
+
+.notyf__message {
+  font-size: 14px;
+  line-height: 1.25rem;
+}

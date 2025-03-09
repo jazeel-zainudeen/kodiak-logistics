@@ -240,35 +240,61 @@ jQuery(document).ready(function($) {
 	siteDatePicker();
 
 	// Smooth scroll to quote div
-	$(document).ready(function () {
-		function smoothScroll(target) {
-			if ($(target).length) {
-				const offset = 100; // Adjust the offset
-				$("html, body").animate(
-					{ scrollTop: $(target).offset().top - offset },
-					800
-				);
-			}
+	function smoothScroll(target) {
+		if ($(target).length) {
+			const offset = 100; // Adjust the offset
+			$("html, body").animate(
+				{ scrollTop: $(target).offset().top - offset },
+				800
+			);
 		}
+	}
 
-		// Check if the user is NOT on the homepage
-		$('a[href$="#quote"]').on("click", function (e) {
-			e.preventDefault();
+	// Check if the user is NOT on the homepage
+	$('a[href$="#quote"]').on("click", function (e) {
+		e.preventDefault();
 
-			if (window.location.pathname !== "/") {
-				// Redirect to home with #quote
-				window.location.href = "/" + "#quote";
-			} else {
-				// Smooth scroll if already on home page
-				smoothScroll("#quote-div");
+		if (window.location.pathname !== "/") {
+			// Redirect to home with #quote
+			window.location.href = "/" + "#quote";
+		} else {
+			// Smooth scroll if already on home page
+			smoothScroll("#quote-div");
+		}
+	});
+
+	// Check if page loads with #quote in URL
+	if (window.location.hash === "#quote") {
+		setTimeout(() => {
+			smoothScroll("#quote-div");
+		}, 500);
+	}
+
+	$(document).ready(function () {
+		// Check if URL contains #success
+		if (window.location.hash === "#success") {
+			let message = "";
+	
+			// Get current page path
+			let path = window.location.pathname;
+	
+			if (path === "/" || path.includes("index.html")) {
+				message = "Thank you! We have received your request.\nOur team will contact you soon to discuss your quotation.";
+			} else if (path.includes("contact")) {
+				message = "Your message has been sent successfully! We’ll review it and respond as soon as possible.";
 			}
-		});
-
-		// Check if page loads with #quote in URL
-		if (window.location.hash === "#quote") {
-			setTimeout(() => {
-				smoothScroll("#quote-div");
-			}, 500);
+	
+			// Show Toastr notification if message exists
+			if (message) {
+				let notyf = new Notyf({
+					position: { x: "right", y: "top" },
+					duration: 3000
+				});
+				notyf.success(message);
+			}
+	
+			// Remove hash from URL without reloading the page
+			history.replaceState(null, null, " ");
 		}
 	});
 });

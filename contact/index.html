@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="../assets/fonts/flaticon/font/flaticon.css">
 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 
     <link rel="stylesheet" href="../assets/css/aos.css">
 
@@ -101,19 +101,21 @@
         <div class="row">
           <div class="col-md-7 mb-5">
 
-            
-
-            <form action="#" class="p-5 bg-white">
-             
+            <form method="post" action="https://formsubmit.co/info@kodiaklogisticsae.com" class="p-5 bg-white">
+              <input type="hidden" name="_next" value="https://www.kodiaklogisticsae.com/contact#success">
+              <input type="hidden" name="_subject" value="New Quote Requested!">
+              <input type="hidden" name="_blacklist" value="spammy pattern, banned term, phrase">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_honey" style="display: none;">
 
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label class="text-black" for="fname">First Name</label>
-                  <input type="text" id="fname" class="form-control">
+                  <input type="text" id="fname" name="first_name" class="form-control">
                 </div>
                 <div class="col-md-6">
                   <label class="text-black" for="lname">Last Name</label>
-                  <input type="text" id="lname" class="form-control">
+                  <input type="text" id="lname" name="last_name" class="form-control">
                 </div>
               </div>
 
@@ -121,7 +123,7 @@
                 
                 <div class="col-md-12">
                   <label class="text-black" for="email">Email</label> 
-                  <input type="email" id="email" class="form-control">
+                  <input type="email" id="email" name="email" class="form-control">
                 </div>
               </div>
 
@@ -129,7 +131,7 @@
                 
                 <div class="col-md-12">
                   <label class="text-black" for="subject">Subject</label> 
-                  <input type="subject" id="subject" class="form-control">
+                  <input type="subject" id="subject" name="subject" class="form-control">
                 </div>
               </div>
 
@@ -242,6 +244,7 @@
   <script src="../assets/js/jquery.magnific-popup.min.js"></script>
   <script src="../assets/js/bootstrap-datepicker.min.js"></script>
   <script src="../assets/js/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 
   <script src="../assets/js/main.js"></script>
     
